@@ -1,0 +1,87 @@
+/* Estilos específicos para el componente Pelicula.jsx */
+
+.pelicula-container body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.pelicula-container .app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pelicula-container .header {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.pelicula-container .header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.pelicula-container .main-content {
+  padding: 20px 0;
+}
+
+.pelicula-container .movie-list {
+  text-align: center;
+}
+
+.pelicula-container .movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pelicula-container .movie {
+  margin: 20px;
+  padding: 10px;
+  background-color: #202020;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.pelicula-container .movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.pelicula-container .movie-details-section {
+  margin-top: 20px;
+}
+
+.pelicula-container .selected-movie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.pelicula-container .selected-movie img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.pelicula-container .selected-movie-details {
+  color: #fff;
+}
+
+.pelicula-container .footer {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.pelicula-container .footer p {
+  color: #ccc;
+}

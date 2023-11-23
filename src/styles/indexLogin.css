@@ -1,0 +1,17 @@
+/* Estilos específicos para el componente Login */
+.w3l-signinform {
+  max-width: 400px; /* Ajusta el ancho del formulario */
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo del formulario con transparencia */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.w3l-signinform h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Otros estilos según sea necesario */
