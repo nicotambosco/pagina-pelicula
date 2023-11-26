@@ -1,23 +1,50 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import '../styles/inicio-session.css';
 import '../styles/indexLogin.css';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); 
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const navigate = useNavigate();
+
+  const isValidEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  const isValidPassword = (password) => {
+    return password.length >= 8;
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
+    // Validación de email
+    if (!isValidEmail(username)) {
+      setEmailError('Por favor, ingresa un correo electrónico válido.');
+      return;
+    } else {
+      setEmailError('');
+    }
+
+    // Validación de contraseña
+    if (!isValidPassword(password)) {
+      setPasswordError('La contraseña debe tener al menos 8 caracteres.');
+      return;
+    } else {
+      setPasswordError('');
+    }
+
+    // Resto del código de login
     console.log('Usuario:', username);
     console.log('Contraseña:', password);
 
     if (username.trim() !== '' && password.trim() !== '') {
       const fakeToken = 'fakeToken123';
       localStorage.setItem('token', fakeToken);
-      navigate('/pagina'); // Utiliza navigation.navigate en lugar de history.push
+      navigate('/pagina');
     } else {
       console.log('Por favor, ingresa un usuario y contraseña válidos.');
     }
@@ -34,9 +61,13 @@ function Login() {
             type="text"
             placeholder="Ingresa Email/usuario"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              setEmailError('');
+            }}
             required
           />
+          {emailError && <p className="error-message">{emailError}</p>}
         </div>
         <div className="form-group">
           <label htmlFor="password">Contraseña</label>
@@ -45,9 +76,13 @@ function Login() {
             type="password"
             placeholder="Ingresa tu contraseña"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setPasswordError('');
+            }}
             required
           />
+          {passwordError && <p className="error-message">{passwordError}</p>}
         </div>
         <button type="submit">Login</button>
       </form>

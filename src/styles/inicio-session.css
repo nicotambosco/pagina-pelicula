@@ -1,4 +1,5 @@
 /* inicio-session.css */
+/* Estilos heredados de app.css */
 .login-body {
   display: flex;
   flex-direction: column;

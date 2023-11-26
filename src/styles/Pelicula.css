@@ -68,7 +68,7 @@
 }
 
 .selected-movie img {
-  max-width: 300px;
+  max-width: 30px;
   height: auto;
   border-radius: 5px;
   margin-right: 20px;
@@ -90,7 +90,7 @@
 /* Agrega estilos CSS para mejorar la apariencia del reproductor de video */
 .selected-movie video {
   width: 100%;
-  max-width: 800px; /* Ajusta el ancho máximo según tus preferencias */
+  max-width: 400px; /* Ajusta el ancho máximo según tus preferencias */
   display: block;
   margin: 0 auto;
 }
@@ -118,6 +118,6 @@
 .selected-movie video::-webkit-media-controls-enclosure {
   display: flex;
   flex: 1;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
