@@ -1,7 +1,6 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState } from 'react';
 import '../styles/Pelicula.css';
 import '../styles/indexPelicula.css';
-  
 
 const movieData = [
   {
@@ -158,13 +157,7 @@ const movieData = [
 
 function Pelicula() {
   const [selectedMovie, setSelectedMovie] = useState(null);
-    useEffect(() => {
-      // Llamada a la API para obtener datos de películas
-      fetch('URL_DE_LA_API')
-        .then((response) => response.json())
-        .then((data) => setMovieData(data))
-        .catch((error) => console.error('Error fetching data:', error));
-    }, []);
+
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
@@ -197,10 +190,7 @@ function Pelicula() {
           <section className="movie-details-section">
             <h2>Detalles</h2>
             <div className="selected-movie">
-                <video controls>
-                  <source src={selectedMovie.videoURL} type="video/mp4" />
-                  </video>
-                <img src={selectedMovie.poster} alt={selectedMovie.title} />
+              <img src={selectedMovie.poster} alt={selectedMovie.title} />
               <div className="selected-movie-details">
                 <h3>{selectedMovie.title}</h3>
                 <p>Año: {selectedMovie.year}</p>
@@ -214,10 +204,10 @@ function Pelicula() {
         )}
       </main>
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()}CineFlix</p>
+        <p>&copy; {new Date().getFullYear()} CineFlix</p>
       </footer>
     </div>
   );
 }
 
-export default Pelicula ;
+export default Pelicula;
