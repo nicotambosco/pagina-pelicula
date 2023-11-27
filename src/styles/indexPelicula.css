@@ -1,87 +1,33 @@
-/* Estilos específicos para el componente Pelicula.jsx */
+/* indexPelicula.css */
 
-.pelicula-container body {
-  font-family: Arial, sans-serif;
-  background-color: #111;
-  color: #fff;
+/* Estilos generales para el cuerpo y los enlaces */
+body {
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-.pelicula-container .app {
-  max-width: 120px;
-  margin: 0 auto;
-  padding: 5px;
+a {
+  color: #333;
+  text-decoration: none;
 }
 
-.pelicula-container .header {
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #333;
+  color: white;
   text-align: center;
-  padding-bottom: 20px;
+  padding: 20px 0;
 }
 
-.pelicula-container .header h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.pelicula-container .main-content {
+/* Estilos para el pie de página */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
   padding: 10px 0;
-}
-
-.pelicula-container .movie-list {
-  text-align: center;
-}
-
-.pelicula-container .movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.pelicula-container .movie {
-  margin: 20px;
-  padding: 10px;
-  background-color: #202020;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  width: 200px;
-  cursor: pointer;
-}
-
-.pelicula-container .movie img {
-  width: 30%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.pelicula-container .movie-details-section {
-  margin-top: 20px;
-}
-
-.pelicula-container .selected-movie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.pelicula-container .selected-movie img {
-  max-width: 300px;
-  height: auto;
-  border-radius: 5px;
-  margin-right: 20px;
-}
-
-.pelicula-container .selected-movie-details {
-  color: #fff;
-}
-
-.pelicula-container .footer {
-  text-align: center;
-  padding-top: 20px;
-}
-
-.pelicula-container .footer p {
-  color: #ccc;
 }

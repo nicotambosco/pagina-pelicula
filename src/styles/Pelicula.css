@@ -1,123 +1,92 @@
-/* Estilos específicos para el componente Pelicula */
-
-/* Estilos para el contenedor principal */
-.Pelicula {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+/* Pelicula.css */
+.app {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Estilos para el encabezado */
 .header {
+  background-color: #333;
+  color: white;
   text-align: center;
-  padding-bottom: 20px;
-}
-
-.header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-/* Estilos para el contenido principal */
-.main-content {
   padding: 20px 0;
 }
 
-/* Estilos para la lista de películas */
-.movie-list {
-  text-align: center;
-}
-
-/* Estilos para el contenedor de películas */
-.movies-container {
+.main-content {
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Estilos para la tarjeta de película */
-.movie {
-  margin: 20px;
-  padding: 10px;
-  background-color: #202020;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  width: 200px;
-  cursor: pointer;
-}
-
-/* Estilos para la imagen de película en la tarjeta */
-.movie img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-/* Estilos para la sección de detalles de película */
-.movie-details-section {
-  margin-top: 20px;
-}
-
-/* Estilos para la película seleccionada */
-.selected-movie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 20px;
 }
 
-.selected-movie img {
-  max-width: 30px;
-  height: auto;
-  border-radius: 5px;
+.movie-list {
+  flex: 1 1 300px;
   margin-right: 20px;
 }
 
-.selected-movie-details {
-  color: #fff;
+.movies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
 }
 
-/* Estilos para el pie de página */
-.footer {
-  text-align: center;
-  padding-top: 20px;
-}
-
-.footer p {
-  color: #ccc;
-}
-/* Agrega estilos CSS para mejorar la apariencia del reproductor de video */
-.selected-movie video {
-  width: 100%;
-  max-width: 400px; /* Ajusta el ancho máximo según tus preferencias */
-  display: block;
-  margin: 0 auto;
-}
-
-/* Estiliza los controles del reproductor de video */
-.selected-movie video::-webkit-media-controls {
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+.movie {
+  cursor: pointer;
   border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.selected-movie video::-webkit-media-controls-play-button,
-.selected-movie video::-webkit-media-controls-volume-slider {
-  display: none;
+.movie img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
-.selected-movie video::-webkit-media-controls-current-time-display,
-.selected-movie video::-webkit-media-controls-time-remaining-display,
-.selected-movie video::-webkit-media-controls-fullscreen-button {
-  color: white;
-  padding: 5px;
+.movie:hover img {
+  transform: scale(1.05);
 }
 
-.selected-movie video::-webkit-media-controls-enclosure {
+.movie-details {
+  padding: 10px;
+}
+
+.movie-details h3 {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.movie-details p {
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+
+.movie-details-section {
+  flex: 2 1 600px;
+}
+
+.selected-movie {
   display: flex;
-  flex: 1;
-  justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.selected-movie img {
+  width: 200px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.selected-movie-details {
+  flex: 1;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
 }
