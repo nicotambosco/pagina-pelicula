@@ -17,7 +17,7 @@ function Login() {
     if (username.trim() !== '' && password.trim() !== '') {
       const fakeToken = 'fakeToken123';
       localStorage.setItem('token', fakeToken);
-      navigate('/pagina'); // Utiliza navigation.navigate en lugar de history.push
+      navigate('/Pelicula'); 
     } else {
       console.log('Por favor, ingresa un usuario y contraseña válidos.');
     }
