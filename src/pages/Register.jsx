@@ -42,7 +42,7 @@ function Register() {
           </div>
         </div>
         <div className="footer-w3l">
-          <p>&copy; 2023 </p>
+          <p>&copy; 2023 CineFlix</p>
         </div>
       </div>
     </div>
