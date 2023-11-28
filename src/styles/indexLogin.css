@@ -1,6 +1,6 @@
 /* index.css */
 /* Reset de estilos para el body y elementos principales */
-body {
+.indexLogin-body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
