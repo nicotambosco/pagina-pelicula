@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
   
   import Login from "./pages/Login";
-  import Pelicula from "./pages/pelicula";
+  import Pelicula from "./pages/Pelicula";
   import Verificacion  from "./pages/Verificacion";
   import ForgotPassword from './pages/ForgotPassword';
   import Register from './pages/Register';
@@ -18,7 +18,7 @@ import {
         <Routes>
           <Route path="/Login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/Register" element={<Register />} />
           <Route path="/Pelicula" element={<Pelicula />} />
           <Route path="/Verificacion/*" element={<Verificacion />}>
             <Route path="welcome" element={<p>Welcome!</p>} />
