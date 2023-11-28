@@ -1,41 +1,81 @@
-// App.jsx
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import '../styles/codigoVerificacion.css';
 import '../styles/indexcodigoVerificacion.css';
+
+function generateRandomCode() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const length = 4;
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
 
 function App() {
   const [code, setCode] = useState('');
   const [verified, setVerified] = useState(false);
   const [verificationMessage, setVerificationMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [codeSent, setCodeSent] = useState(false);
+  const [validCode, setValidCode] = useState('');
 
   const handleInputChange = (event) => {
     setCode(event.target.value);
   };
 
-  const handleVerification = () => {
-    const validCode = '123456'; // Código de ejemplo (cámbialo por uno real)
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
 
+  const handleSendCode = () => {
+    const generatedCode = generateRandomCode();
+    setValidCode(generatedCode);
+    console.log(`Código generado: ${generatedCode}`);
+    console.log(`Código enviado por correo a: ${email}`);
+    setCodeSent(true);
+  };
+
+  const handleVerification = () => {
     if (code === validCode) {
       setVerified(true);
-      setVerificationMessage('Código verificado correctamente.');
+      setVerificationMessage('Código verificado correctamente. ¡Bienvenido!');
     } else {
       setVerified(false);
       setVerificationMessage('Código incorrecto. Por favor, intenta de nuevo.');
     }
   };
 
+  if (verified) {
+    // Redirigir al componente de Login si el código se verifica correctamente
+    return <Navigate to="/Login" />;
+  }
+
   return (
     <div className="container">
       <h1>Verificación de Código</h1>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Ingresa el código"
-          value={code}
-          onChange={handleInputChange}
-        />
-      </div>
-      <button onClick={handleVerification}>Verificar</button>
+      {!codeSent ? (
+        <div className="input-container">
+          <input
+            type="email"
+            placeholder="Ingresa tu correo electrónico"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <button onClick={handleSendCode}>Enviar Código</button>
+        </div>
+      ) : (
+        <div className="input-container">
+          <input
+            type="text"
+            placeholder="Ingresa el código"
+            value={code}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleVerification}>Verificar</button>
+        </div>
+      )}
       <p className="message" style={{ color: verified ? 'green' : 'red' }}>
         {verificationMessage}
       </p>
