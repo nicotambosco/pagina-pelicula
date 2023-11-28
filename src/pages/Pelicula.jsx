@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/Pelicula.css';
 import '../styles/indexPelicula.css';
 
@@ -159,6 +159,14 @@ import '../styles/indexPelicula.css';
 function Pelicula() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  useEffect(() => {
+     fetch('URL_DE_TU_API')
+      .then((response) => response.json())
+      .then((data) => setMovieData(data))
+      .catch((error) => console.error('Error fetching movies:', error));
+  }, []);
+
+
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
   };
@@ -170,8 +178,7 @@ function Pelicula() {
       </header>
       <main className="main-content">
         <section className="movie-list">
-          <h2>Películas</h2>
-          <div className="movies-container">
+            <div className="movies-container">
             {movieData.map((movie) => (
               <div
                 key={movie.id}
