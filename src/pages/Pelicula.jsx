@@ -160,7 +160,7 @@ function Pelicula() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-     fetch('URL_DE_TU_API')
+     fetch('Poner api de joaco')
       .then((response) => response.json())
       .then((data) => setMovieData(data))
       .catch((error) => console.error('Error fetching movies:', error));
