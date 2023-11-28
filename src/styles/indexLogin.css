@@ -1,17 +1,49 @@
-/* Estilos específicos para el componente Login */
-.w3l-signinform {
-  max-width: 400px; /* Ajusta el ancho del formulario */
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo del formulario con transparencia */
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* index.css */
+/* Reset de estilos para el body y elementos principales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el encabezado */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
   text-align: center;
 }
 
-.w3l-signinform h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+header h1 {
+  margin: 0;
 }
 
-/* Otros estilos según sea necesario */
+/* Estilos para los enlaces de navegación */
+nav {
+  background-color: #444;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+  padding: 20px;
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
