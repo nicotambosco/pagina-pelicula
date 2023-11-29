@@ -37,8 +37,8 @@ function Login() {
   const conectarAPI = async (username, password) => {
     const apiUrl = 'https://moviesapi-production-ad6c.up.railway.app/user/login'; // Reemplaza con la URL de tu API
     const requestBody = {
-      username: username,
-      password: password
+      emailSent: username,
+      passwordSent: password
     };
 
     try {

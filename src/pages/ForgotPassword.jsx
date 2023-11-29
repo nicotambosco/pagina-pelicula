@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/password.css';
-import '../styles/ForgotPassword.css';
+import '../styles/forgotPassword.css';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
