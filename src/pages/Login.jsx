@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import '../styles/inicio-session.css';
 import '../styles/indexLogin.css';
-import '../componentes/Token.jsx'
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -17,7 +16,7 @@ function Login() {
 
     if (username.trim() !== '' && password.trim() !== '') {
       const fakeToken = 'fakeToken123';
-      localStorage.setItem('Token', fakeToken);
+      localStorage.setItem('token', fakeToken);
       navigate('/Pelicula'); 
     } else {
       console.log('Por favor, ingresa un usuario y contraseña válidos.');
