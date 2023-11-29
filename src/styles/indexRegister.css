@@ -12,3 +12,28 @@
     align-items: center;
   }
   
+/* Estilos para el campo de selección de sexo */
+.select-style select {
+  width: calc(100% - 22px);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+  -webkit-appearance: none; /* Elimina la apariencia nativa del selector en algunos navegadores */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23333"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'); /* Agrega una flecha personalizada */
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: center;
+}
+
+.select-style {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+  
