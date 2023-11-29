@@ -1,28 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 import '../styles/indexRegister.css';
 
 function Register() {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    confirmPassword: '',
+    gender: ''
+  });
 
-  const handleSubmit = (event) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const email = document.querySelector("input[name='Email']").value;
-    const password = document.querySelector("input[name='Password']").value;
-    const phone = document.querySelector("input[name='phone']").value;
-    const gender = document.querySelector("select[name='gender']").value;
+    const { email, password, phone, gender } = formData;
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const userExists = users.some((user) => user.email === email);
+    try {
+      const response = await conectarAPI(formData);
+      const data = await response.json();
 
-    if (userExists) {
-      document.getElementById('error-message').style.display = 'block';
-    } else {
-      users.push({ email, password, phone, gender });
-      localStorage.setItem('users', JSON.stringify(users));
-      document.getElementById('success-message').style.display = 'block';
-      navigate('/login');
+      if (response.ok) {
+        document.getElementById('success-message').style.display = 'block';
+        navigate('/login');
+      } else {
+        document.getElementById('error-message').style.display = 'block';
+      }
+    } catch (error) {
+      console.error('Error al conectar con la API:', error);
+      // Manejo de errores
+    }
+  };
+
+  const conectarAPI = async (formData) => {
+    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      return response;
+    } catch (error) {
+      throw new Error('Error al conectar con la API');
     }
   };
 
@@ -35,13 +65,53 @@ function Register() {
             <span>¡Regístrese ahora mismo!</span>
           </h2>
           <form id="register-form" onSubmit={handleSubmit}>
-            <input placeholder="Nombre completo" name="Name" type="text" required />
-            <input placeholder="Email" name="Email" type="email" required />
-            <input placeholder="Número de contacto" name="phone" type="text" required />
-            <input placeholder="Contraseña" name="Password" type="password" id="password1" required />
-            <input placeholder="Confirmar Contraseña" name="ConfirmPassword" type="password" id="password2" required />
+            <input
+              placeholder="Nombre completo"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              placeholder="Email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              placeholder="Número de contacto"
+              name="phone"
+              type="text"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <input
+              placeholder="Contraseña"
+              name="password"
+              type="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+            <input
+              placeholder="Confirmar Contraseña"
+              name="confirmPassword"
+              type="password"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
             <div className="select-style">
-              <select name="gender" required>
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleChange}
+                required
+              >
                 <option value="">Seleccionar sexo</option>
                 <option value="male">Masculino</option>
                 <option value="female">Femenino</option>

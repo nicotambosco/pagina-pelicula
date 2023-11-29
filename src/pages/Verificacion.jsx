@@ -37,7 +37,7 @@ function App() {
     setCodeSent(true);
   };
 
-  const handleVerification = () => {
+  const handleVerification = async () => {
     if (code === validCode) {
       setVerified(true);
       setVerificationMessage('Código verificado correctamente. ¡Bienvenido!');
@@ -47,8 +47,25 @@ function App() {
     }
   };
 
+  const conectarAPI = async (email, generatedCode) => {
+    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const requestBody = { email, generatedCode };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      return response;
+    } catch (error) {
+      throw new Error('Error al conectar con la API');
+    }
+  };
+
   if (verified) {
-    // Redirigir al componente de Login si el código se verifica correctamente
     return <Navigate to="/Login" />;
   }
 

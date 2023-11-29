@@ -1,15 +1,45 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate desde react-router-dom
+import { useNavigate } from 'react-router-dom';
 import '../styles/password.css';
 import '../styles/ForgotPassword.css';
 
 const ForgotPassword = () => {
-  const navigate = useNavigate(); // Utiliza useNavigate en lugar de useHistory
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // ... lógica de enviar correo electrónico eliminada
-    navigate('/Verificacion'); // Utiliza navigation.navigate en lugar de history.push
+    const email = event.target[0].value; // Obtiene el valor del campo de correo electrónico
+
+    try {
+      const response = await conectarAPI(email);
+
+      if (response.ok) {
+        navigate('/Verificacion');
+      } else {
+        // Manejo de errores si la solicitud no es exitosa
+      }
+    } catch (error) {
+      console.error('Error al conectar con la API:', error);
+      // Manejo de otros errores
+    }
+  };
+
+  const conectarAPI = async (email) => {
+    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const requestBody = { email };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      return response;
+    } catch (error) {
+      throw new Error('Error al conectar con la API');
+    }
   };
 
   return (

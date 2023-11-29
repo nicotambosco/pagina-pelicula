@@ -8,18 +8,50 @@ function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     console.log('Usuario:', username);
     console.log('Contraseña:', password);
 
     if (username.trim() !== '' && password.trim() !== '') {
-      const fakeToken = 'fakeToken123';
-      localStorage.setItem('token', fakeToken);
-      navigate('/Pelicula'); 
+      try {
+        const response = await conectarAPI(username, password);
+        const data = await response.json();
+
+        if (response.ok) {
+          const token = data.token; // Suponiendo que la API devuelve un token
+          localStorage.setItem('token', token);
+          navigate('/Pelicula'); 
+        } else {
+          console.log('Error al autenticar:', data.error);
+        }
+      } catch (error) {
+        console.error('Error al conectarse con la API:', error);
+      }
     } else {
       console.log('Por favor, ingresa un usuario y contraseña válidos.');
+    }
+  };
+
+  const conectarAPI = async (username, password) => {
+    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const requestBody = {
+      username: username,
+      password: password
+    };
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      });
+      return response;
+    } catch (error) {
+      throw new Error('Error al conectar con la API');
     }
   };
 
