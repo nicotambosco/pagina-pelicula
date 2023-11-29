@@ -25,7 +25,7 @@ const ForgotPassword = () => {
   };
 
   const conectarAPI = async (email) => {
-    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const apiUrl = 'https://moviesapi-production-ad6c.up.railway.app/user/recover_password_code'; // Reemplaza con la URL de tu API
     const requestBody = { email };
 
     try {

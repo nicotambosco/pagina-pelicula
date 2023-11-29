@@ -48,7 +48,7 @@ function App() {
   };
 
   const conectarAPI = async (email, generatedCode) => {
-    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const apiUrl = 'https://moviesapi-production-ad6c.up.railway.app/user/verify'; // Reemplaza con la URL de tu API
     const requestBody = { email, generatedCode };
 
     try {

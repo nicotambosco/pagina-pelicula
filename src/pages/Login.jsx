@@ -20,7 +20,7 @@ function Login() {
         const data = await response.json();
 
         if (response.ok) {
-          const token = data.token; // Suponiendo que la API devuelve un token
+          const token = data.token; 
           localStorage.setItem('token', token);
           navigate('/Pelicula'); 
         } else {
@@ -35,7 +35,7 @@ function Login() {
   };
 
   const conectarAPI = async (username, password) => {
-    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const apiUrl = 'https://moviesapi-production-ad6c.up.railway.app/user/login'; // Reemplaza con la URL de tu API
     const requestBody = {
       username: username,
       password: password

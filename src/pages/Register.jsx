@@ -40,7 +40,7 @@ function Register() {
   };
 
   const conectarAPI = async (formData) => {
-    const apiUrl = 'URL_DE_TU_API_AQUI'; // Reemplaza con la URL de tu API
+    const apiUrl = 'https://moviesapi-production-ad6c.up.railway.app/user/register'; // Reemplaza con la URL de tu API
 
     try {
       const response = await fetch(apiUrl, {

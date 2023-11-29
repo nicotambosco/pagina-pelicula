@@ -160,7 +160,7 @@ function Pelicula() {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
-     fetch('Poner api de joaco')// poner link----------------->
+     fetch('https://moviesapi-production-ad6c.up.railway.app/movies')
       .then((response) => response.json())
       .then((data) => setMovieData(data))
       .catch((error) => console.error('Error fetching movies:', error));
