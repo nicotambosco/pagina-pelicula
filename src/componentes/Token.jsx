@@ -5,10 +5,10 @@ const Token = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Estoy en todos lados");
+    
     const tokenFromLocalStorage = localStorage.getItem("token");
     if (tokenFromLocalStorage) {
-      // Si hay un token, navegar a la página de Dashboard
+      // Si hay un token, navegar a la página de Pelicula
       navigate('/Pelicula');
     } else {
       // Si no hay token, navegar a la página de Login
