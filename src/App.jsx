@@ -39,7 +39,7 @@ export default function SinToken() {
         <Route path="/Register" element={<Register />} />
         <Route path="/Pelicula" element={<Token><Pelicula /></Token>} />
         <Route path="/Verificacion/*" element={<Verificacion />}>
-          <Route path="welcome" element={<p>Welcome!</p>} />
+          
         </Route>
       </Routes>
     </Router>
